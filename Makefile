@@ -26,7 +26,7 @@ spec: depends
 	./scripts/ruby bundle exec rspec
 
 features: depends
-	./scripts/ruby bundle exec cucumber -c
+	./scripts/ruby bundle exec cucumber
 
 check-container: container
 	docker run --rm $(CONTAINER_IMAGE):$(CONTAINER_TAG) \
