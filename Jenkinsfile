@@ -30,7 +30,7 @@ pipeline {
             archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
         }
         success {
-            archiveArtifacts artifacts: 'doc', fingerprint: true
+            archiveArtifacts artifacts: 'doc/**', fingerprint: true
         }
     }
 }
