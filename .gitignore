@@ -1,4 +1,6 @@
-vendor/
-.cache/
-*.sw*
 .bundle/
+.cache/
+.yardoc/
+doc/
+vendor/
+*.sw*

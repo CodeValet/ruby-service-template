@@ -18,28 +18,31 @@ container: Dockerfile
 # Verification tasks
 #######################################
 check: spec features analyze check-container
-
+###
 analyze: depends
 	./scripts/ruby bundle exec rubocop
-
-spec: depends
-	./scripts/ruby bundle exec rspec
-
-features: depends
-	./scripts/ruby bundle exec cucumber
 
 check-container: container
 	docker run --rm $(CONTAINER_IMAGE):$(CONTAINER_TAG) \
 		bundle exec puma --version
+
+features: depends cucumber.yml
+	./scripts/ruby bundle exec cucumber
+
+spec: depends .rspec
+	./scripts/ruby bundle exec rspec
 #######################################
 
 # Miscellaneous tasks
 #######################################
-run: depends
-	./scripts/ruby bundle exec puma
-
 depends: Gemfile
 	./scripts/ruby bundle install
+
+documentation: depends
+	./scripts/ruby bundle exec yard
+
+run: depends
+	./scripts/ruby bundle exec puma
 
 #######################################
 

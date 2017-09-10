@@ -13,3 +13,8 @@ group :test do
   gem 'rspec'
   gem 'rubocop'
 end
+
+group :documentation do
+  gem 'asciidoctor'
+  gem 'yard'
+end
