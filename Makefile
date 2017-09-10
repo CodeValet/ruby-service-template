@@ -23,7 +23,7 @@ analyze: depends
 	./scripts/ruby bundle exec rubocop
 
 spec: depends
-	./scripts/ruby bundle exec rspec -c
+	./scripts/ruby bundle exec rspec
 
 features: depends
 	./scripts/ruby bundle exec cucumber -c
